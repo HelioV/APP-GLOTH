@@ -6,12 +6,12 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Hydrogen'},
-  {name: 'Helium'},
-  {name: 'Lithium'},
-  {name: 'Beryllium'},
-  {name: 'Boron'},
-  { name: 'Carbon'},
+  {name: 'Comer'},
+  {name: 'Banhar'},
+  {name: 'Festejar'},
+  {name: 'Correr'},
+  {name: 'Progrmar'},
+  { name: 'Caminhar'},
 ];
 
 @Component({

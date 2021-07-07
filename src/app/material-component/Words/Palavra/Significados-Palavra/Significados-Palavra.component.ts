@@ -8,8 +8,8 @@ import { MatDialog} from '@angular/material/dialog';
 })
 export class SignificadosPalavraComponent implements OnInit {
   linguagem:String="Kikongo"
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers','Hélio Vicente','Home',
-  'Boots'];
+  typesOfShoes: string[] = ['Piata', 'Soka', 'Loafers', 'Moccasins', 'Lema','Bubama','Pelelela',
+  'Vemuna'];
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {

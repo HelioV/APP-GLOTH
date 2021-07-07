@@ -9,8 +9,8 @@ import { MatDialog} from '@angular/material/dialog';
 })
 export class ListaPalavraComponent implements OnInit {
  
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers','Hélio Vicente','Home',
-  'Boots', 'Clogs'];
+  typesOfShoes: string[] = ['Entoar', 'Abandonar', 'Abandonado', 'Abalar', 'Abaixo','Entretanto','Bacorinho',
+  'Báculo', 'Abanar'];
   constructor(public dialog: MatDialog ) {}
     
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Palavra} from './material-component/Words/Palavra/word.model';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+//import { AngularFirestore } from '@angular/fire/firestore';
+//import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 export class ApiFireBaseService {
 
 private dbPath = '/dicionario';
-public tutorialsRef: AngularFireList<Palavra>;
-constructor(private httpClient: HttpClient,private fireStore: AngularFirestore,private db: AngularFireDatabase) {
+//public tutorialsRef: AngularFireList<Palavra>;
+constructor(){}
+/*constructor(private httpClient: HttpClient,private fireStore: AngularFirestore,private db: AngularFireDatabase) {
   this.tutorialsRef = this.db.list(this.dbPath);
- }
+ }*/
 
- pegarTodasPlavras(): AngularFireList<Palavra> {
+ /*pegarTodasPlavras(): AngularFireList<Palavra> {
   return this.tutorialsRef;
 }
 
@@ -33,5 +34,5 @@ EliminarPlavra(key: string): Promise<void> {
 EliminarTodasPalavras(): Promise<void> {
   return this.tutorialsRef.remove();
 }
-
+     */
 }

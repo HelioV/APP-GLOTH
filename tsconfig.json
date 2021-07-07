@@ -18,6 +18,7 @@
     "experimentalDecorators": true,
     "target": "es2015",
     "strict": true,
+    "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types"
     ],
