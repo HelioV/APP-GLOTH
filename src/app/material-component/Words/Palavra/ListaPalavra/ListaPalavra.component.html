@@ -1,0 +1,11 @@
+ 
+<button mat-raised-button color="sucess" class="add" (click)="openDialog()">Adicionar Nova Plavra</button>
+<mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let shoe of typesOfShoes" class="words">
+                 {{shoe}}
+             <div class="options">
+                 <button mat-raised-button color="primary">Edit</button>
+		       <button mat-raised-button color="accent">Delete</button>
+            </div>
+            </mat-list-item>
+</mat-list>

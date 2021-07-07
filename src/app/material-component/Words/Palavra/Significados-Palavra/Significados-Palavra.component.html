@@ -1,0 +1,20 @@
+<mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> {{linguagem}} </mat-panel-title>
+                    <mat-panel-description>  Nova Palavra </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <input matInput placeholder="Palavra"> 
+                </mat-form-field>
+                <button mat-raised-button color="primary">Adicionar</button>
+</mat-expansion-panel>
+
+<mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let shoe of typesOfShoes" class="words">
+                 {{shoe}}
+             <div class="options">
+                 <button mat-raised-button color="primary" (click)="openDialog()">Edit</button>
+		       <button mat-raised-button color="accent">Delete</button>
+            </div>
+            </mat-list-item>
+</mat-list>

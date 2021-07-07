@@ -1,0 +1,19 @@
+
+<mat-card>
+      <mat-card-content>
+        <mat-card-title>Adicionar Nova Palavra</mat-card-title>
+        <mat-card-subtitle>Informe a Palavra que deseja Guardar</mat-card-subtitle>
+            <form class="example-form">
+              <mat-form-field appearance="fill">
+              <input matInput [(ngModel)]="name" placeholder="Digite a Nova palavra">
+             </mat-form-field>
+           </form>
+            {{smsresult}}
+            <mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar> 
+           <button mat-raised-button color="primary" (click)="SalvarPlavra()" *ngIf="!Processing">Adicionar</button>
+      </mat-card-content>
+</mat-card>
+
+
+
+ 

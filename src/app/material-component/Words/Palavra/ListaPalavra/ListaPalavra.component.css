@@ -1,0 +1,31 @@
+.mat-list{
+    height: 100%;
+    width: 30em;
+    
+}
+
+.options button{
+    margin: 5px;
+    width: 30px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 20px;
+}
+.add{
+ position: relative;
+ left: 18em;
+}
+.options{
+    position: absolute;
+    left: 14em;
+}
+.words{
+    position: relative;
+    left: 4em;
+    cursor: pointer;
+    margin: 1px;
+}
+
+.words:hover{
+    background-color: ghostwhite;
+}

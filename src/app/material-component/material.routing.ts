@@ -1,3 +1,4 @@
+import { AdicionarPalavraComponent } from './Words/Palavra/AdicionarPalavra/AdicionarPalavra.component';
 import { Routes } from '@angular/router';
 
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -16,7 +17,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
-
+import { PalavrasComponent } from './Palavras/Palavras.component';
+import { SugestoesComponent } from './Sugestoes/Sugestoes.component';
 export const MaterialRoutes: Routes = [
   {
     path: 'button',
@@ -43,12 +45,24 @@ export const MaterialRoutes: Routes = [
     component: StepperComponent
   },
   {
+    path: 'Todas-Palavras',
+    component: PalavrasComponent
+  },
+  {
+    path: 'Palavras-Sugeridas',
+    component: SugestoesComponent
+  },
+  {
     path: 'expansion',
     component: ExpansionComponent
   },
   {
     path: 'chips',
     component: ChipsComponent
+  },
+  {
+    path: 'Adicionar-Palavra',
+    component: AdicionarPalavraComponent
   },
   {
     path: 'toolbar',

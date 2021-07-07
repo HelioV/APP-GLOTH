@@ -1,0 +1,8 @@
+<mat-card>
+      <mat-card-content>
+        <mat-card-title>Tens a certeza que deseja eliminar a Plavra?</mat-card-title>
+        <mat-card-subtitle> {{word}}</mat-card-subtitle>
+            <mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar> 
+           <button mat-raised-button color="primary" (click)="EliminarPlavra()" *ngIf="!Processing">Sim</button>
+      </mat-card-content>
+</mat-card>

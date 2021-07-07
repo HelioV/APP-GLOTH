@@ -1,0 +1,52 @@
+<mat-card>
+			<mat-card-content>
+				<mat-card-title>Adicionando Plavra <span class="bg-success text-white rounded font-12 pl-5 pr-5">New</span></mat-card-title>
+				
+				<mat-vertical-stepper [linear]="isLinearvarient" #steppervarient class="m-t-20">
+				  <mat-step [stepControl]="varientfirstFormGroup">
+				    <form [formGroup]="varientfirstFormGroup">
+				      <ng-template matStepLabel>Palavra em Português</ng-template>
+				      <mat-form-field>
+				        <input matInput placeholder="Palavra" formControlName="varientfirstCtrl" required>
+				      </mat-form-field>
+				      <div>
+				        <button mat-raised-button matStepperNext color="accent">Próximo</button>
+				      </div>
+				    </form>
+				  </mat-step>
+				  <mat-step [stepControl]="varientsecondFormGroup">
+				    <form [formGroup]="varientsecondFormGroup">
+				      <ng-template matStepLabel>Palavras em Kimbundo</ng-template>
+				      <mat-form-field>
+				        <input matInput placeholder="Exem,Exem" formControlName="varientsecondCtrl" required>
+				      </mat-form-field>
+				      <div class="button-row">
+				        <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>
+				        <button mat-raised-button color="accent" matStepperNext>Próximo</button>
+				      </div>
+				    </form>
+				  </mat-step>
+          <mat-step [stepControl]="varientterceiroFormGroup">
+				    <form [formGroup]="varientterceiroFormGroup">
+				      <ng-template matStepLabel>Palavras em Kikongo</ng-template>
+				      <mat-form-field>
+				        <input matInput placeholder="Exem,Exem" formControlName="varientterceiroCtrl" required>
+				      </mat-form-field>
+				      <div class="button-row">
+				        <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>
+				        <button mat-raised-button color="accent" matStepperNext>Próximo</button>
+				      </div>
+				    </form>
+				  </mat-step>
+				  <mat-step>
+				    <ng-template matStepLabel>Done</ng-template>
+				    You are now done.
+				    <div class="button-row">
+				      <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>
+				      <button mat-raised-button color="warn" (click)="steppervarient.reset()">Reset</button>
+              <button mat-raised-button color="warn" (click)="SalvarDados()">Inserir</button>
+				    </div>
+				  </mat-step>
+				</mat-vertical-stepper>
+			</mat-card-content>
+		</mat-card>
