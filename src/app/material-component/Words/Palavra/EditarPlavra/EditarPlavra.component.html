@@ -1,10 +1,10 @@
 <mat-card>
       <mat-card-content>
-        <mat-card-title>Editando a Palavra</mat-card-title>
-        <mat-card-subtitle>Palavra Atual {{word}}</mat-card-subtitle>
+        <mat-card-title>Editando a Palavra "{{PalavraExtra.palavraParaExibir}}" </mat-card-title>
+        <mat-card-subtitle>{{PalavraExtra.palavraParaExibir}}</mat-card-subtitle>
             <form class="example-form">
               <mat-form-field appearance="fill">
-              <input matInput [(ngModel)]="name" placeholder="Digite a Nova palavra">
+              <input matInput [(ngModel)]="nome" placeholder="Novo nome" name="nome">
              </mat-form-field>
            </form>
             {{smsresult}}

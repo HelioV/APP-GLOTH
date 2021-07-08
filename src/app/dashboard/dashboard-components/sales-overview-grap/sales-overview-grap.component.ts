@@ -1,3 +1,5 @@
+import { ApiFireBaseService } from './../../../apiFireBase.service';
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { ChartType, ChartEvent } from 'ng-chartist';
@@ -53,9 +55,18 @@ export class SalesOverviewGrapComponent implements OnInit {
 	};
 
 
-  constructor() { }
+  constructor(private apiFireBaseUse:ApiFireBaseService) { }
 
   ngOnInit(): void {
+	  this.apiFireBaseUse.pegarTodasPlavras().snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ key: c.payload.key, ...c.payload.val() })
+          )
+        )
+      ).subscribe(data => {
+         console.log(data.reverse());
+      });
   }
 
 }

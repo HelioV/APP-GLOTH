@@ -39,12 +39,11 @@
 				    </form>
 				  </mat-step>
 				  <mat-step>
-				    <ng-template matStepLabel>Done</ng-template>
-				    You are now done.
+				    <ng-template matStepLabel>Finalizando</ng-template>
 				    <div class="button-row">
 				      <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>
 				      <button mat-raised-button color="warn" (click)="steppervarient.reset()">Reset</button>
-              <button mat-raised-button color="warn" (click)="SalvarDados()">Inserir</button>
+              <button mat-raised-button color="warn" (click)="SalvarDados()">Confirmar</button>
 				    </div>
 				  </mat-step>
 				</mat-vertical-stepper>

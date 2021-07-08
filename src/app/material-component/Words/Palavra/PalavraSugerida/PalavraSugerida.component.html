@@ -1,16 +1,16 @@
  <mat-grid-list cols="3" rowHeight="290px">
         <mat-grid-tile rowspan="2"> <!---Lista das Plavras-->
-         <app-PalavraNaoAprovada></app-PalavraNaoAprovada>
+         <app-PalavraNaoAprovada (EnviarPlavraSelecionada)="enviouUmaPlavra($event)"></app-PalavraNaoAprovada>
         </mat-grid-tile> 
-        
-        <mat-grid-tile rowspan="2" class="means"> 
-        
-        <app-Significados-Palavra></app-Significados-Palavra>
-
+          
+        <mat-grid-tile rowspan="2" class="means" *ngIf="loadword"> 
+          
+        <app-Significados-Palavra [Palavra]="PalavraSelecionada"></app-Significados-Palavra>
+  
         </mat-grid-tile> <!---Significado Kimbundo-->
-        <mat-grid-tile rowspan="2" class="means"> 
+        <mat-grid-tile rowspan="2" class="means" *ngIf="loadword"> 
 
-        <app-Significados-Palavra></app-Significados-Palavra>
+        <app-Significado-Kimbundo [Palavra]="PalavraSelecionada"></app-Significado-Kimbundo>
         
         </mat-grid-tile> <!---Significado Kikongo-->
 </mat-grid-list>  

@@ -1,3 +1,4 @@
+import { SignificadoKimbundoComponent } from './Words/Palavra/Significado-Kimbundo/Significado-Kimbundo.component';
 import { PalavraNaoAprovadaComponent } from './Words/Palavra/PalavraSugerida/PalavraNaoAprovada/PalavraNaoAprovada.component';
 import { PalavraSugeridaComponent } from './Words/Palavra/PalavraSugerida/PalavraSugerida.component';
 import { AdicionarPalavraCompletaComponent } from './Words/Palavra/AdicionarPalavraCompleta/AdicionarPalavraCompleta.component';
@@ -30,7 +31,6 @@ import { StepperComponent } from './stepper/stepper.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ChipsComponent } from './chips/chips.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
 import { ProgressComponent } from './progress/progress.component';
 import { MatCardModule } from '@angular/material/card';
 import {
@@ -43,6 +43,8 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   imports: [
     CommonModule,
@@ -56,8 +58,9 @@ import {MatTableModule} from '@angular/material/table';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
-    
+    MatTableModule,
+    ScrollingModule,
+    MatListModule
   ],
   providers: [],
   entryComponents: [DialogOverviewExampleDialogComponent],
@@ -71,7 +74,6 @@ import {MatTableModule} from '@angular/material/table';
     ExpansionComponent,
     ChipsComponent,
     ToolbarComponent,
-    ProgressSnipperComponent,
     ProgressComponent,
     DialogComponent,
     DialogOverviewExampleDialogComponent,
@@ -90,7 +92,8 @@ import {MatTableModule} from '@angular/material/table';
     EliminarPlavraComponent,
     AdicionarPalavraCompletaComponent,
     PalavraSugeridaComponent,
-    PalavraNaoAprovadaComponent
+    PalavraNaoAprovadaComponent,
+    SignificadoKimbundoComponent
   ]
 })
 export class MaterialComponentsModule {}

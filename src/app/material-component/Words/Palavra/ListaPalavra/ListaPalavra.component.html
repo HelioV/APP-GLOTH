@@ -1,11 +1,20 @@
  
-<button mat-raised-button color="sucess" class="add" (click)="openDialog()">Adicionar Nova Plavra</button>
-<mat-list role="list">
-            <mat-list-item role="listitem" *ngFor="let shoe of typesOfShoes" class="words">
-                 {{shoe}}
+<button mat-raised-button color="sucess" class="add" (click)="openDialog()" *ngIf="!Processing">Adicionar Nova Palavra</button>
+<mat-list *ngIf="!Processing">
+          <mat-list-item *ngFor="let palavra of todasPalavrasDoFirebase" class="words" (click)="enviarPalavra(palavra)">
+                 {{palavra.portuguese}}
              <div class="options">
-                 <button mat-raised-button color="primary">Edit</button>
-		       <button mat-raised-button color="accent">Delete</button>
-            </div>
+                 <button mat-raised-button color="primary" (click)="editarPlavra(palavra)" >Edit</button>
+		       <button mat-raised-button color="accent" (click)="eliminarPalavra(palavra)">Delete</button>
+            </div> 
             </mat-list-item>
-</mat-list>
+</mat-list> 
+   
+ <!--<mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar>-->
+ <!--<mat-progress-spinner
+					class="example-margin"
+					color="sucess"
+					mode="indeterminate"
+				   *ngIf="Processing">
+</mat-progress-spinner>-->
+ 

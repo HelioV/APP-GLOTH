@@ -1,10 +1,10 @@
 <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    <mat-panel-title> {{palavraEnviada.portuguese}}</mat-panel-title>
-                    <mat-panel-description>  Em Kikongo </mat-panel-description>
+                    <mat-panel-title> {{palavraEnviada.portuguese}} </mat-panel-title>
+                    <mat-panel-description>  Em Kimbundo  </mat-panel-description>
                 </mat-expansion-panel-header>
-                <mat-form-field>
-                    <input matInput [(ngModel)]="nome" placeholder="Nova palavra em Kikongo" name="nome"> 
+                <mat-form-field> 
+                    <input matInput [(ngModel)]="nome" placeholder="Nova palavra em Kimbundo" name="nome"> 
                 </mat-form-field>
                 <button mat-raised-button color="primary" (click)="AdicionarPalavra()">Adicionar</button>
 </mat-expansion-panel>
@@ -14,7 +14,7 @@
                  {{shoe}}
              <div class="options">
                  <button mat-raised-button color="primary" (click)="openDialog(shoe)">Edit</button>
-		         <button mat-raised-button color="accent" (click)="EliminarPalavra(shoe)">Delete</button>
+		       <button mat-raised-button color="accent" (click)="EliminarPalavra(shoe)">Delete</button>
             </div>
             </mat-list-item>
-</mat-list>
+</mat-list> 

@@ -1,19 +1,22 @@
 
-export class Palavra {
-    check: boolean = true;
-    kibundo: string = '';
-    kikongo: string = '';
-    portugues: string = '';
+export class PalavraParaArmazenar{
+  check: boolean = true;
+  kibundo: string = '';
+  kikongo: string = '';
+  portuguese: string = '';
+}
+export class Palavra extends PalavraParaArmazenar{
+    key:string='';
 
     public  DividirKikongo()
     {
-      return this.kikongo.split(",")
+      return this.kikongo.split(",");
           
     }
 
     public  Dividirkibundo()
     {
-      return this.kibundo.split(",")
+      return this.kibundo.split(",");
           
     }
 
@@ -55,4 +58,24 @@ export class Palavra {
     {
         this.check=true;
     }
+  }
+
+  export interface PlavraInterface{
+    key?:String| null;
+    check?: boolean ;
+    kibundo?: string;
+    kikongo?: string ;
+    portuguese?: string ;
+  }
+ 
+  export enum LINGUA{
+      KIKONGO="kikongo",
+      KIMBUNDO="kimbundo",
+      PORTUGUES="Portugues"
+  }
+
+  export class PalavraExtra {
+         linguagem:string='';
+         palavraParaExibir:string='';
+
   }

@@ -47,5 +47,5 @@ export class DialogComponent {
       console.log('The dialog was closed');
       this.animal = result;
     });
-  }
+  } 
 }

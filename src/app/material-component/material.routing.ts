@@ -1,3 +1,4 @@
+import { EditarPlavraComponent } from './Words/Palavra/EditarPlavra/EditarPlavra.component';
 import { AdicionarPalavraComponent } from './Words/Palavra/AdicionarPalavra/AdicionarPalavra.component';
 import { Routes } from '@angular/router';
 
@@ -10,7 +11,6 @@ import { StepperComponent } from './stepper/stepper.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ChipsComponent } from './chips/chips.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
@@ -53,6 +53,10 @@ export const MaterialRoutes: Routes = [
     component: SugestoesComponent
   },
   {
+    path: 'Palavras-Editando',
+    component: EditarPlavraComponent
+  },
+  {
     path: 'expansion',
     component: ExpansionComponent
   },
@@ -67,10 +71,6 @@ export const MaterialRoutes: Routes = [
   {
     path: 'toolbar',
     component: ToolbarComponent
-  },
-  {
-    path: 'progress-snipper',
-    component: ProgressSnipperComponent
   },
   {
     path: 'progress',

@@ -6,4 +6,25 @@ table {
   .mat-form-field {
     font-size: 14px;
     width: 100%;
-  }
+  } 
+
+  .options button{
+    margin: 4px;
+    width: 85px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 20px;
+    position: relative;
+    left: 2em;
+}
+
+.words{
+  position: relative;
+  right: 4em;
+  cursor: pointer;
+  margin: 1px;
+}
+
+.words:hover{
+  background-color: rgb(232, 232, 236);
+}

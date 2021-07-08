@@ -1,7 +1,7 @@
+import { ApiFireBaseService } from './../../../../apiFireBase.service';
+import { PalavraParaArmazenar } from './../word.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import { MatStepperModule } from '@angular/material/stepper';
  
 @Component({
   selector: 'app-AdicionarPalavraCompleta',
@@ -39,7 +39,7 @@ export class AdicionarPalavraCompletaComponent implements OnInit {
 	errorfirstFormGroup: FormGroup=Object.create(null);
 	errorsecondFormGroup: FormGroup=Object.create(null);
 
-	constructor(private _formBuilder: FormBuilder) {}
+	constructor(private _formBuilder: FormBuilder,private apiFireBaseUse:ApiFireBaseService) {}
 
 	ngOnInit() {
 		this.firstFormGroup = this._formBuilder.group({
@@ -104,7 +104,13 @@ export class AdicionarPalavraCompletaComponent implements OnInit {
   
   SalvarDados()
   {
-
+	 let palavra:PalavraParaArmazenar=new PalavraParaArmazenar();
+		 palavra.check=true;
+		 palavra.portuguese=this.varientfirstFormGroup.value.varientfirstCtrl
+		 palavra.kibundo=this.varientsecondFormGroup.value.varientsecondCtrl
+		 palavra.kikongo=this.varientterceiroFormGroup.value.varientterceiroCtrl
+		this.apiFireBaseUse.CadastrarUmaPlavra(palavra)
+		
   }
 
 }

@@ -3,16 +3,13 @@
     width: 30em;
     
 }
+
 .options button{
-    margin: 10px;
-    width: 50px;
+    margin: 5px;
+    width: 30px;
     text-align: center;
     font-size: 12px;
     border-radius: 20px;
-}
-.add{
- position: relative;
- left: 18em;
 }
 .options{
     position: absolute;
