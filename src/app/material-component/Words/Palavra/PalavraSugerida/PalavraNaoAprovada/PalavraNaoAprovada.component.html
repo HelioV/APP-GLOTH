@@ -1,10 +1,21 @@
-<mat-list >
-            <mat-list-item  *ngFor="let palavra of todasPalavrasDoFirebase" class="words" (click)="enviarPalavra(palavra)">
+
+<span *ngIf="!Processing"> Palavras Segeridas ({{todasPalavrasDoFirebase.length}})</span>
+<mat-list *ngIf="!Processing">
+            <mat-list-item  *ngFor="let palavra of todasPalavrasDoFirebase" class="words" (click)="enviarPalavra(palavra)"
+            [style.background-color]="palavra.portuguese==palavraEscolhida ? 'beige' : null">
                  {{palavra.portuguese}}
-             <div class="options">  
+             <div class="options">   
 		         <button mat-raised-button color="accent" (click)="aprovarPlavra(palavra)">Aprovar</button>
                  <button mat-raised-button color="warn" (click)="regeitarPalavra(palavra)">Regeitar</button>
                  <button mat-raised-button color="accent" (click)="editarPlavra(palavra)" >Editar</button>
             </div>  
             </mat-list-item>
 </mat-list>
+      
+     <p *ngIf="Processing"> Estamos Procurando todas Palavras Sugeridas</p>
+<mat-progress-spinner
+					class="example-margin"
+					color="sucess"
+					mode="indeterminate"
+				   *ngIf="Processing">
+</mat-progress-spinner> 

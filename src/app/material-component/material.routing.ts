@@ -1,3 +1,4 @@
+
 import { EditarPlavraComponent } from './Words/Palavra/EditarPlavra/EditarPlavra.component';
 import { AdicionarPalavraComponent } from './Words/Palavra/AdicionarPalavra/AdicionarPalavra.component';
 import { Routes } from '@angular/router';

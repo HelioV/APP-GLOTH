@@ -15,8 +15,11 @@ import { MatDialog} from '@angular/material/dialog';
 export class PalavraNaoAprovadaComponent implements OnInit {
 
   public todasPalavrasDoFirebase:PlavraInterface[]=[];
+  
+  public Processing:boolean=true;
   constructor(private apiFireBaseUse:ApiFireBaseService,public snackBar: MatSnackBar,public dialog: MatDialog) { }
   @Output() EnviarPlavraSelecionada: EventEmitter<any> = new EventEmitter();
+  public palavraEscolhida:string="";
   ngOnInit(): void {
 	  this.apiFireBaseUse.pegarTodasPlavras().snapshotChanges().pipe(
         map(changes =>
@@ -26,6 +29,7 @@ export class PalavraNaoAprovadaComponent implements OnInit {
         )
       ).subscribe(data => {
         this.todasPalavrasDoFirebase=this.pegarTodasPlavrasSugeridas(data);
+        this.Processing=false;
       });
   }
 
@@ -42,6 +46,7 @@ export class PalavraNaoAprovadaComponent implements OnInit {
 
   enviarPalavra(PlavraParaEnviar:Palavra)
   { 
+    this.palavraEscolhida=PlavraParaEnviar.portuguese;
      this.EnviarPlavraSelecionada.emit(PlavraParaEnviar);
   }
 
@@ -77,6 +82,10 @@ export class PalavraNaoAprovadaComponent implements OnInit {
       width: '480px'
     });
 
+  }
+
+  ngOnChanges(){
+    console.log("Houve alteracao")
   }
 
  

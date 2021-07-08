@@ -3,16 +3,14 @@
  <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
     <!-- User profile image -->
     <!-- ============================================================== -->
-    <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Elias Inácio <i class="ti-angle-down font-12 m-l-5"></i></a></div>
+    <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> {{nomeUsuario}} <i class="ti-angle-down font-12 m-l-5"></i></a></div>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
         <button mat-menu-item>
-            <mat-icon>settings</mat-icon> Settings </button>
+            <mat-icon>settings</mat-icon> Configurações </button>
         <button mat-menu-item>
-            <mat-icon>account_box</mat-icon> Profile </button>
-        <button mat-menu-item>
-            <mat-icon>notifications_off</mat-icon> Disable notifications </button>
-        <button mat-menu-item>
-            <mat-icon>exit_to_app</mat-icon> Sign Out </button>
+            <mat-icon>account_box</mat-icon> Perfil </button>
+        <button mat-menu-item (click)="SairDoSistema()">
+            <mat-icon>exit_to_app</mat-icon> Terminar Sessão </button>
     </mat-menu>
     
 </div>

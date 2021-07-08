@@ -8,7 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class EditarPlavraComponent implements OnInit {
 
-   public nome:string=""
+   public nome:string="" 
    public smsresult:String="";
    public Processing:boolean=false;
    public PalavraPassada:Palavra=new Palavra();
@@ -22,12 +22,15 @@ export class EditarPlavraComponent implements OnInit {
 
   SalvarPlavra()
   {
+    this.Processing=true;
     if(this.PalavraExtra.linguagem=="Portugues")
     {
       this.PalavraPassada.portuguese=this.nome;
       this.apiFireBaseUse.AtualziarPlavra(this.PalavraPassada.key,this.PalavraPassada).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Atualizada")
+        this.Processing=false;
       }).catch(error=>{
+        this.Processing=false;
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
       })
 
@@ -36,16 +39,20 @@ export class EditarPlavraComponent implements OnInit {
 
       this.apiFireBaseUse.AtualziarPlavra(this.PalavraPassada.key,this.AtualizarKimbundo(this.PalavraPassada,this.nome,this.PalavraExtra.palavraParaExibir)).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Atualizada")
+        this.Processing=false;
       }).catch(error=>{
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+        this.Processing=false;
       })
     } else if(this.PalavraExtra.linguagem=="kikongo")
     {
      
       this.apiFireBaseUse.AtualziarPlavra(this.PalavraPassada.key,this.AtualizarKikongo(this.PalavraPassada,this.nome,this.PalavraExtra.palavraParaExibir)).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Atualizada")
+        this.Processing=false;
       }).catch(error=>{
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+        this.Processing=false;
       })
     }
   }

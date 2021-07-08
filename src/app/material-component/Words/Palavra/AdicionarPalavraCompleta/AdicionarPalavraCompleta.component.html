@@ -40,11 +40,13 @@
 				  </mat-step>
 				  <mat-step>
 				    <ng-template matStepLabel>Finalizando</ng-template>
-				    <div class="button-row">
+					<mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar> 
+					
+				    <div class="button-row" *ngIf="!Processing">
 				      <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>
 				      <button mat-raised-button color="warn" (click)="steppervarient.reset()">Reset</button>
-              <button mat-raised-button color="warn" (click)="SalvarDados()">Confirmar</button>
-				    </div>
+                     <button mat-raised-button color="warn" (click)="SalvarDados()">Confirmar</button>
+				    </div> 
 				  </mat-step>
 				</mat-vertical-stepper>
 			</mat-card-content>

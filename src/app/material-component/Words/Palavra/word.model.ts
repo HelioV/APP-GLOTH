@@ -5,6 +5,18 @@ export class PalavraParaArmazenar{
   kikongo: string = '';
   portuguese: string = '';
 }
+
+export class Usuario{
+  nome: string = '';
+  senha: string = '';
+  key?: string = '';
+}
+
+export interface UsuarioInterface{
+  nome?: string |null;
+  senha?: string |null;
+  key?:string |null;
+}
 export class Palavra extends PalavraParaArmazenar{
     key:string='';
 

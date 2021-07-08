@@ -38,7 +38,7 @@ export class AdicionarPalavraCompletaComponent implements OnInit {
 
 	errorfirstFormGroup: FormGroup=Object.create(null);
 	errorsecondFormGroup: FormGroup=Object.create(null);
-
+    public Processing:boolean=false;
 	constructor(private _formBuilder: FormBuilder,private apiFireBaseUse:ApiFireBaseService) {}
 
 	ngOnInit() {
@@ -103,13 +103,15 @@ export class AdicionarPalavraCompletaComponent implements OnInit {
   }
   
   SalvarDados()
-  {
-	 let palavra:PalavraParaArmazenar=new PalavraParaArmazenar();
+  {    
+	    this.Processing=true;
+	    let palavra:PalavraParaArmazenar=new PalavraParaArmazenar();
 		 palavra.check=true;
 		 palavra.portuguese=this.varientfirstFormGroup.value.varientfirstCtrl
 		 palavra.kibundo=this.varientsecondFormGroup.value.varientsecondCtrl
 		 palavra.kikongo=this.varientterceiroFormGroup.value.varientterceiroCtrl
 		this.apiFireBaseUse.CadastrarUmaPlavra(palavra)
+		this.Processing=false;
 		
   }
 

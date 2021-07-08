@@ -12,6 +12,7 @@ export class SignificadosPalavraComponent implements OnInit {
   typesOfShoes: string[]=[];
   nome:string="";
   @Input('Palavra') palavraEnviada:Palavra=new Palavra();
+  public Processing:boolean=false;
   constructor(public dialog: MatDialog,private apiFireBaseUse:ApiFireBaseService) { }
   ngOnInit() {
     this.typesOfShoes=this.palavraEnviada.kikongo.split(",");
@@ -39,6 +40,7 @@ export class SignificadosPalavraComponent implements OnInit {
 
   public EliminarPalavra(PalavraAeliminar:string)
   {
+    
     let palavrasKimbundo=this.palavraEnviada.kikongo.split(",");
     let index=palavrasKimbundo.indexOf(PalavraAeliminar);
     palavrasKimbundo.splice(index, 1);
@@ -46,6 +48,7 @@ export class SignificadosPalavraComponent implements OnInit {
 
     this.apiFireBaseUse.AtualziarPlavra(this.palavraEnviada.key,this.palavraEnviada).then(result=>{
       this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Atualizada")
+    
     }).catch(error=>{
       this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
     })
@@ -53,14 +56,17 @@ export class SignificadosPalavraComponent implements OnInit {
 
   AdicionarPalavra()
   {
-      let valores = this.palavraEnviada.kibundo.split(",");
+      this.Processing=true;
+      let valores = this.palavraEnviada.kikongo.split(",");
       valores=valores.reverse();
       valores.push(this.nome);
-      this.palavraEnviada.kibundo=valores.reverse().join(",");
+      this.palavraEnviada.kikongo=valores.reverse().join(",");
       this.apiFireBaseUse.AtualziarPlavra(this.palavraEnviada.key,this.palavraEnviada).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Adicionada")
+        this.Processing=false;
       }).catch(error=>{
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+        this.Processing=false;
       }) 
   }
 

@@ -1,16 +1,25 @@
+import { LoginComponent } from '../app/login/login.component';
 import { Routes } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
-
 export const AppRoutes: Routes = [
+
+  {
+    path: 'Login',
+    component: LoginComponent
+  },
   {
     path: '',
     component: FullComponent,
     children: [
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
+      },
+      {
+        path: 'Login',
+        component: LoginComponent
       },
       {
         path: '',

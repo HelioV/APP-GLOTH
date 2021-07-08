@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Palavra,PalavraExtra,PalavraParaArmazenar} from './material-component/Words/Palavra/word.model';
+import {Palavra,PalavraExtra,PalavraParaArmazenar,Usuario,UsuarioInterface} from './material-component/Words/Palavra/word.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { HttpClient} from '@angular/common/http';
@@ -12,14 +12,37 @@ export class ApiFireBaseService {
 private PalavraParaArmazenar:Palavra=new Palavra();
 private PalavraExtraParaArmazenar:PalavraExtra=new PalavraExtra();
 private dbPath = '/dicionario';
+private dbPathUser = '/usuario';
+public nomeUsuario:string;
 public tutorialsRef: AngularFireList<Palavra|PalavraParaArmazenar>;
+public usuarioRef: AngularFireList<Usuario|UsuarioInterface>;
 constructor(private httpClient: HttpClient,private fireStore: AngularFirestore,private db: AngularFireDatabase,public snackBar: MatSnackBar) {
   this.tutorialsRef = this.db.list(this.dbPath);
+  this.usuarioRef = this.db.list(this.dbPathUser);
+  this.nomeUsuario="";
 
  }
 
+ GuaradarNomeUusario(nome:string)
+ {
+   this.nomeUsuario=nome;
+ }
+
+ SaberUsuarioLogado()
+ {
+   return this.nomeUsuario;
+ }
  pegarTodasPlavras(): AngularFireList<Palavra|PalavraParaArmazenar> {
   return this.tutorialsRef;
+}
+
+pegarTodosUsuarios(): AngularFireList<Usuario|UsuarioInterface> {
+  return this.usuarioRef;
+}
+
+inserirUmUsuario(usuario:Usuario):any
+{
+  return this.usuarioRef.push(usuario);
 }
 
  CadastrarUmaPlavra(palavra: PalavraParaArmazenar): any {

@@ -45,6 +45,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatListModule} from '@angular/material/list';
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   imports: [
     CommonModule,
@@ -60,7 +61,8 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatTableModule,
     ScrollingModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule
   ],
   providers: [],
   entryComponents: [DialogOverviewExampleDialogComponent],

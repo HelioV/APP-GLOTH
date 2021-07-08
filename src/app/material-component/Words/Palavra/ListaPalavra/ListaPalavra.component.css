@@ -1,7 +1,7 @@
 .mat-list{
-    height: 100%;
-    width: 30em;
-    
+    height: 510px;
+    width: 35em;
+    overflow: scroll;
 }
 .options button{
     margin: 10px;
@@ -12,11 +12,11 @@
 }
 .add{
  position: relative;
- left: 18em;
+ left: 10em;
 }
 .options{
     position: absolute;
-    left: 14em;
+    left: 8em;
 }
 .words{
     position: relative;
@@ -27,4 +27,8 @@
 
 .words:hover{
     background-color: ghostwhite;
+}
+
+.wordchoose{
+    background-color: beige;
 }

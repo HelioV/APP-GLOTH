@@ -14,6 +14,7 @@ export class SignificadoKimbundoComponent implements OnInit {
   typesOfShoes: string[]=[];
   nome:string="";
   @Input('Palavra') palavraEnviada:Palavra=new Palavra();
+  public Processing:boolean=false;
   constructor(public dialog: MatDialog,private apiFireBaseUse:ApiFireBaseService) { }
   ngOnInit() {
     this.typesOfShoes=this.palavraEnviada.kibundo.split(",");
@@ -41,6 +42,7 @@ export class SignificadoKimbundoComponent implements OnInit {
 
   public EliminarPalavra(PalavraAeliminar:string)
   {
+    
     let palavrasKimbundo=this.palavraEnviada.kibundo.split(",");
     let index=palavrasKimbundo.indexOf(PalavraAeliminar);
     palavrasKimbundo.splice(index, 1);
@@ -48,21 +50,26 @@ export class SignificadoKimbundoComponent implements OnInit {
 
     this.apiFireBaseUse.AtualziarPlavra(this.palavraEnviada.key,this.palavraEnviada).then(result=>{
       this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Atualizada")
+     
     }).catch(error=>{
       this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+      
     })
   }
 
   AdicionarPalavra()
   {
+     this.Processing=true;
       let valores = this.palavraEnviada.kibundo.split(",");
       valores=valores.reverse();
       valores.push(this.nome);
       this.palavraEnviada.kibundo=valores.reverse().join(",");
       this.apiFireBaseUse.AtualziarPlavra(this.palavraEnviada.key,this.palavraEnviada).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Adicionada")
+        this.Processing=false;
       }).catch(error=>{
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+        this.Processing=false;
       }) 
   }
 

@@ -1,4 +1,4 @@
-
+import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -16,14 +16,15 @@ import { DemoMaterialModule } from './demo-material-module';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule} from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

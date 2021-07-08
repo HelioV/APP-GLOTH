@@ -6,7 +6,8 @@
                 <mat-form-field>
                     <input matInput [(ngModel)]="nome" placeholder="Nova palavra em Kikongo" name="nome"> 
                 </mat-form-field>
-                <button mat-raised-button color="primary" (click)="AdicionarPalavra()">Adicionar</button>
+                <mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar>
+                <button mat-raised-button color="primary" (click)="AdicionarPalavra()" *ngIf="!Processing">Adicionar</button>
 </mat-expansion-panel>
 
 <mat-list role="list">

@@ -17,12 +17,14 @@ export class ListaPalavraComponent implements OnInit {
   paginaAtual:number=1;
   public Processing:boolean=true;
   @Output() EnviarPlavraSelecionada: EventEmitter<any> = new EventEmitter();
+  public palavraEscolhida:string="";
   constructor(public dialog: MatDialog,private apiFireBaseUse:ApiFireBaseService ) {
      
   }
   
   enviarPalavra(PlavraParaEnviar:Palavra)
   { 
+     this.palavraEscolhida=PlavraParaEnviar.portuguese;
      this.EnviarPlavraSelecionada.emit(PlavraParaEnviar);
   }
 

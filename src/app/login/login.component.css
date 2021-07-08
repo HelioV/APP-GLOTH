@@ -1,0 +1,29 @@
+
+*{
+    background-color: #EDECF7;
+}
+
+mat-card{
+    width: 550px;
+    height: 400px;
+    position: relative;
+    left: 33em;
+    top: 10em;
+}
+
+button{
+    position: relative;
+    width: 200px;
+    margin: 10px;
+    height: 50px;
+    top: 35px;
+    left: 12px;
+}
+
+mat-card-subtitle{
+    font-size: 17px;
+    color: red;
+    position: relative;
+    left: 4em;
+    top: 4px;
+}

@@ -22,5 +22,10 @@ export class PalavraSugeridaComponent implements OnInit {
     this.loadword=true;
     
   }
+
+  
+  ngOnChanges(){
+    
+  }
  
 }
