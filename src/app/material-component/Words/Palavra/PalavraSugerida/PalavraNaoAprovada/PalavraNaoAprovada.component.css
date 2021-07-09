@@ -1,30 +1,30 @@
-/* Structure */
-table {
-    width: 380px;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  } 
-
-  .options button{
-    margin: 4px;
-    width: 85px;
-    text-align: center;
-    font-size: 12px;
-    border-radius: 20px;
-    position: relative;
-    left: 2em;
+.mat-list{
+  height: 30em;
+  overflow: scroll;
+  overflow-x:hidden;
+  overflow-y: auto;
+  width: 95%;
 }
-
+.options button{
+  width: 70px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 20px;
+  margin: 5px;
+}
+.options{
+  position: absolute;
+  left: 30%;
+}
 .words{
-  position: relative;
-  right: 4em;
   cursor: pointer;
   margin: 1px;
 }
 
 .words:hover{
-  background-color: rgb(232, 232, 236);
+  background-color: ghostwhite;
+}
+
+.wordchoose{
+  background-color: beige;
 }

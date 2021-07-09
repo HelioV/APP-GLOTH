@@ -8,7 +8,7 @@ import {PlavraInterface,Palavra,PalavraExtra} from '../word.model';
 @Component({
   selector: 'app-ListaPalavra',
   templateUrl: './ListaPalavra.component.html',
-  styleUrls: ['./ListaPalavra.component.css']
+  styleUrls: ['./ListaPalavra.component.css'],
 })
 export class ListaPalavraComponent implements OnInit {
  

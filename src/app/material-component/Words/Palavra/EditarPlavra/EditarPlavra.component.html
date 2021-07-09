@@ -4,11 +4,12 @@
         <mat-card-subtitle>{{PalavraExtra.palavraParaExibir}}</mat-card-subtitle>
             <form class="example-form">
               <mat-form-field appearance="fill">
-              <input matInput [(ngModel)]="nome" placeholder="Novo nome" name="nome">
-             </mat-form-field>
-           </form>
-            {{smsresult}}
+                <input matInput [(ngModel)]="nome" placeholder="Nova Palavra" name="nome" [formControl]="nomeNovaPalavra" required>
+                <mat-error *ngIf="nomeNovaPalavra.invalid">{{mensagemDeErro}}</mat-error> 
+            </mat-form-field>  
+           </form> 
+            {{smsresult}} 
             <mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar> 
-           <button mat-raised-button color="primary" (click)="SalvarPlavra()" *ngIf="!Processing">Atualizar</button>
+           <button mat-raised-button color="primary" (click)="AtualizarPalavra()" *ngIf="!Processing">Atualizar</button>
       </mat-card-content>
 </mat-card>

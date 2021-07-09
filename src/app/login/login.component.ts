@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,private apiFireBaseUse:ApiFireBaseService) { }
 
   ngOnInit() {
+    
   }
 
   EntrarNoSistema()
@@ -54,11 +55,20 @@ export class LoginComponent implements OnInit {
 
   cadastrarUsuario()
   {
-    let usuarioExemplo:Usuario=new Usuario();
+
+    if(this.pass=="" || this.nome==""){this.Processing=false;this.smsresult="Preencha os dois campos"; }
+    else if (this.pass=="Tuling" && this.nome=="Tuling") {
+      this.smsresult="";
+      this.apiFireBaseUse.mostrarResultado("Tipo de Usuario","Este cadastro foi rejeitado")
+    }
+    else {
+      let usuarioExemplo:Usuario=new Usuario();
     usuarioExemplo.nome=this.nome;
     usuarioExemplo.senha=this.pass;
     this.apiFireBaseUse.inserirUmUsuario(usuarioExemplo);
     this.smsresult="Cadastrado com sucesso";
+    }
+    
   }
 
 }

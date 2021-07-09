@@ -1,21 +1,27 @@
-<mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title> {{palavraEnviada.portuguese}} </mat-panel-title>
-                    <mat-panel-description>  Em Kimbundo  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <mat-form-field> 
-                    <input matInput [(ngModel)]="nome" placeholder="Nova palavra em Kimbundo" name="nome"> 
-                </mat-form-field>
-                 <mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar> 
-                <button mat-raised-button color="primary" (click)="AdicionarPalavra()" *ngIf="!Processing">Adicionar</button>
-</mat-expansion-panel>
-  
-<mat-list role="list">
-            <mat-list-item role="listitem" *ngFor="let shoe of typesOfShoes" class="words">
-                 {{shoe}}
-             <div class="options">
-                 <button mat-raised-button color="primary" (click)="openDialog(shoe)">Edit</button>
-		       <button mat-raised-button color="accent" (click)="EliminarPalavra(shoe)">Delete</button>
-            </div>
-            </mat-list-item>
-</mat-list> 
+
+<article fxLayout="column" fxLayoutAlign=" stretch">
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title> {{palavraEnviada.portuguese}}</mat-panel-title>
+            <mat-panel-description>  Em kimbundo </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="fill">
+            <input matInput [(ngModel)]="nome" placeholder="Nova palavra em kimbundo" name="nome" [formControl]="nomeNovaPalavra" required>
+            <mat-error *ngIf="nomeNovaPalavra.invalid">{{mensagemDeErro}}</mat-error> 
+        </mat-form-field>   
+        <mat-progress-bar mode="indeterminate" value="40" *ngIf="Processing"></mat-progress-bar>
+        <button mat-raised-button color="primary" (click)="AdicionarPalavra()" *ngIf="!Processing">Adicionar</button>
+</mat-expansion-panel> 
+
+<mat-list role="list" fxLayout="column" fxLayoutAlign=" stretch">
+    <mat-list-item role="listitem" *ngFor="let shoe of typesOfShoes" class="words">
+         {{shoe}}  
+     <div class="options">
+         <button mat-raised-button color="primary" (click)="openDialog(shoe)">Edit</button>
+         <button mat-raised-button color="accent" (click)="EliminarPalavra(shoe)">Delete</button>
+    </div>
+    </mat-list-item>
+</mat-list>
+
+</article>

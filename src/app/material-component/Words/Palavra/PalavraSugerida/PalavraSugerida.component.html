@@ -1,16 +1,14 @@
- <mat-grid-list cols="3" rowHeight="290px">
-        <mat-grid-tile rowspan="2"> <!---Lista das Plavras-->
-         <app-PalavraNaoAprovada (EnviarPlavraSelecionada)="enviouUmaPlavra($event)"></app-PalavraNaoAprovada>
-        </mat-grid-tile> 
-          
-        <mat-grid-tile rowspan="2" class="means" *ngIf="loadword"> 
-          
-        <app-Significados-Palavra [Palavra]="PalavraSelecionada"></app-Significados-Palavra>
-  
-        </mat-grid-tile> <!---Significado Kimbundo-->
-        <mat-grid-tile rowspan="2" class="means" *ngIf="loadword"> 
- 
-        <app-Significado-Kimbundo [Palavra]="PalavraSelecionada"></app-Significado-Kimbundo>
-        
-        </mat-grid-tile> <!---Significado Kikongo-->
-</mat-grid-list>  
+
+<article fxLayout="row" fxLayoutAlign="space-between none" fxLayoutGap="7px">
+        <section fxFlex="40">
+
+        <app-PalavraNaoAprovada (EnviarPlavraSelecionada)="enviouUmaPlavra($event)"></app-PalavraNaoAprovada>
+
+       </section>
+        <section fxFlex="30" *ngIf="loadword">
+         <app-Significados-Palavra [Palavra]="PalavraSelecionada"></app-Significados-Palavra>
+       </section>
+        <section  fxFlex="30" *ngIf="loadword">
+         <app-Significado-Kimbundo [Palavra]="PalavraSelecionada"></app-Significado-Kimbundo>
+       </section>
+</article>

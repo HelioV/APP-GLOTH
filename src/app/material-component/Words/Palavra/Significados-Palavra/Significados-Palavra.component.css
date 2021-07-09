@@ -1,23 +1,17 @@
-.mat-list{
-    height: 100%;
-    width: 30em;
-    
-}
 
 .options button{
-    margin: 5px;
-    width: 30px;
+    width: 1em;
     text-align: center;
     font-size: 12px;
     border-radius: 20px;
+    margin: 10px;
 }
+
 .options{
     position: absolute;
-    left: 14em;
+    left: 37%;
 }
 .words{
-    position: relative;
-    left: 4em;
     cursor: pointer;
     margin: 1px;
 }
@@ -25,3 +19,4 @@
 .words:hover{
     background-color: ghostwhite;
 }
+

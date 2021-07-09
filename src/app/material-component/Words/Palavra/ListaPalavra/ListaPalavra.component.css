@@ -1,14 +1,16 @@
 .mat-list{
-    height: 510px;
-    width: 35em;
+    height: 30em;
     overflow: scroll;
+    overflow-x:hidden;
+    overflow-y: auto;
+    width: 95%;
 }
 .options button{
-    margin: 10px;
-    width: 50px;
+    width: 1em;
     text-align: center;
     font-size: 12px;
     border-radius: 20px;
+    margin: 10px;
 }
 .add{
  position: relative;
@@ -16,11 +18,9 @@
 }
 .options{
     position: absolute;
-    left: 8em;
+    left: 35%;
 }
 .words{
-    position: relative;
-    left: 4em;
     cursor: pointer;
     margin: 1px;
 }

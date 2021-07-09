@@ -3,19 +3,31 @@ import { Palavra,PalavraExtra} from './../word.model';
 import { EditarPlavraComponent } from './../EditarPlavra/EditarPlavra.component';
 import { Component, OnInit,Input } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
+import {FormControl, Validators} from '@angular/forms';
 @Component({
   selector: 'app-Significados-Palavra',
   templateUrl: './Significados-Palavra.component.html',
   styleUrls: ['./Significados-Palavra.component.css']
 })
 export class SignificadosPalavraComponent implements OnInit {
+  nomeNovaPalavra = new FormControl('', [Validators.required]);
+  mensagemDeErro:string="";
   typesOfShoes: string[]=[];
   nome:string="";
   @Input('Palavra') palavraEnviada:Palavra=new Palavra();
   public Processing:boolean=false;
+  
   constructor(public dialog: MatDialog,private apiFireBaseUse:ApiFireBaseService) { }
   ngOnInit() {
     this.typesOfShoes=this.palavraEnviada.kikongo.split(",");
+  }
+   
+  PossuiErro() {
+    if (this.nomeNovaPalavra.errors) {
+      this.mensagemDeErro=' Campo não pode estar vazio';
+      return true;
+    } 
+    return false;
   }
 
   openDialog(palavraselecionada:string){
@@ -56,6 +68,8 @@ export class SignificadosPalavraComponent implements OnInit {
 
   AdicionarPalavra()
   {
+    if(!this.PossuiErro())
+    {
       this.Processing=true;
       let valores = this.palavraEnviada.kikongo.split(",");
       valores=valores.reverse();
@@ -64,10 +78,14 @@ export class SignificadosPalavraComponent implements OnInit {
       this.apiFireBaseUse.AtualziarPlavra(this.palavraEnviada.key,this.palavraEnviada).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Adicionada")
         this.Processing=false;
+        this.nomeNovaPalavra = new FormControl('', [Validators.required]);
       }).catch(error=>{
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+        this.mensagemDeErro="Tente Novamente mais tarde";
         this.Processing=false;
       }) 
+    } else this.apiFireBaseUse.mostrarResultado("Campo vazio","Digite algo se desejares adicionar.")
+      
   }
 
   

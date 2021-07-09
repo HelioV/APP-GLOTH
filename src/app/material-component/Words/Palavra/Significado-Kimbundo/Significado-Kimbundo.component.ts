@@ -3,6 +3,7 @@ import { EditarPlavraComponent } from './../EditarPlavra/EditarPlavra.component'
 import { ApiFireBaseService } from './../../../../apiFireBase.service';
 import { Component, OnInit,Input } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-Significado-Kimbundo',
@@ -10,7 +11,8 @@ import { MatDialog} from '@angular/material/dialog';
   styleUrls: ['./Significado-Kimbundo.component.css']
 })
 export class SignificadoKimbundoComponent implements OnInit {
-
+  nomeNovaPalavra = new FormControl('', [Validators.required]);
+  mensagemDeErro:string="";
   typesOfShoes: string[]=[];
   nome:string="";
   @Input('Palavra') palavraEnviada:Palavra=new Palavra();
@@ -18,6 +20,14 @@ export class SignificadoKimbundoComponent implements OnInit {
   constructor(public dialog: MatDialog,private apiFireBaseUse:ApiFireBaseService) { }
   ngOnInit() {
     this.typesOfShoes=this.palavraEnviada.kibundo.split(",");
+  }
+
+  PossuiErro() {
+    if (this.nomeNovaPalavra.errors) {
+      this.mensagemDeErro=' Campo não pode estar vazio';
+      return true;
+    } 
+    return false;
   }
 
   openDialog(palavraselecionada:string){
@@ -59,7 +69,9 @@ export class SignificadoKimbundoComponent implements OnInit {
 
   AdicionarPalavra()
   {
-     this.Processing=true;
+    if(!this.PossuiErro())
+    {
+      this.Processing=true;
       let valores = this.palavraEnviada.kibundo.split(",");
       valores=valores.reverse();
       valores.push(this.nome);
@@ -67,10 +79,13 @@ export class SignificadoKimbundoComponent implements OnInit {
       this.apiFireBaseUse.AtualziarPlavra(this.palavraEnviada.key,this.palavraEnviada).then(result=>{
         this.apiFireBaseUse.mostrarResultado("Sucesso","Palavra Adicionada")
         this.Processing=false;
+        this.nomeNovaPalavra = new FormControl('', [Validators.required]);
       }).catch(error=>{
         this.apiFireBaseUse.mostrarResultado("Erro","Não foi feito atualização")
+        this.mensagemDeErro="Tente Novamente mais tarde";
         this.Processing=false;
       }) 
+    } else this.apiFireBaseUse.mostrarResultado("Campo vazio","Digite algo se desejares adicionar.")
   }
 
 }
